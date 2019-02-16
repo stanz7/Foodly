@@ -1,5 +1,6 @@
-import hashlib
 import os
+import hashlib
+
 
 #Import Flask Library
 from flask import Flask, render_template, request, session, url_for, redirect
@@ -163,6 +164,7 @@ def restaurantRegisterAuth():
     address = request.form['address']
     city = request.form['city']
     state = request.form['state']
+    zipcode = request.form['zipcode']
 
  
     #cursor used to send queries
@@ -179,8 +181,8 @@ def restaurantRegisterAuth():
         error = "This user already exists"
         return render_template('restaurantRegister.html', error = error)
     else:
-        ins = 'INSERT INTO restaurants VALUES(%s, %s, %s, %s, %s, %s)'
-        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(), restaurantName, address, city, state))
+        ins = 'INSERT INTO restaurants VALUES(%s, %s, %s, %s, %s, %s, %s)'
+        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(), restaurantName, address, city, state, zipcode))
         conn.commit()
         cursor.close()
         return redirect(url_for('verify'))
@@ -190,6 +192,9 @@ def restaurantRegisterAuth():
 @app.route('/home')
 def home():
     email = session['email']
+    query = 'SELECT zipcode FROM restaurants WHERE email = %s'
+    cursor.execute(query, (email))
+    zipcode = cursor.fetchone()
     return render_template('home.html', email = email)
 
 #displays the home page for restaurants
