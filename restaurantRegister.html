@@ -1,0 +1,24 @@
+<!––restaurantRegisterAuth.html-->
+<html>
+<head>
+</head>
+<body>
+<form action="/restaurantRegisterAuth" method="POST">
+	<input type="text" name = "email" placeholder="email" required/> </br>
+    <input type="password" name = "password" placeholder="password" required/></br>
+    <input type="text" name = "restaurantName" placeholder="restaurant name" required/></br>
+    <input type="text" name = "address" placeholder="Street Address" required/></br>
+    <input type="text" name = "city" placeholder="city" required/></br>
+    <input type="text" name = "state" placeholder="state" required/></br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+
+</body>
+
+
+</html>

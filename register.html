@@ -1,0 +1,28 @@
+<!––register.html-->
+<html>
+<head>
+</head>
+<body>
+<form action="/registerAuth" method="POST">
+	<input type="text" name = "email" placeholder="email" required/> </br>
+    <input type="password" name = "password" placeholder="password" required/></br>
+    <input type="text" name = "fname" placeholder="first name" required/></br>
+    <input type="text" name = "lname" placeholder="last name" required/></br>
+    <input type="text" name = "address" placeholder="street address" required/></br>
+    <input type="text" name = "city" placeholder="city" required/></br>
+    <input type="text" name = "state" placeholder="state" required/></br>
+    <input type="text" name = "zipcode" placeholder="zip code" required/></br>
+    Upload State ID<input type="file" name="stateID " accept="image/*" required></br>
+    Upload Paystubs<input type="file" name="paystubs" accept="image/*"  required></br>
+	<input type="submit" value = Register />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+
+</body>
+
+
+</html>
