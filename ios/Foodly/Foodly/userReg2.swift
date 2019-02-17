@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  userReg2.swift
 //  Foodly
 //
-//  Created by Stanley Zeng on 2/15/19.
+//  Created by Stanley Zeng on 2/17/19.
 //  Copyright © 2019 Stanley Zeng. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class userReg2: UIViewController {
 
     var backgroundImage: UIImageView!
     
@@ -26,6 +26,4 @@ class ViewController: UIViewController {
         self.backgroundImage.frame = self.view.bounds
     }
 
-
 }
-

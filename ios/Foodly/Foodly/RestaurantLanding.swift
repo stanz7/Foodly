@@ -12,12 +12,23 @@ class RestaurantLanding: UIViewController {
 
     @IBOutlet weak var restName: UILabel!
     
+    var backgroundImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         restName.text = restaurantNames[0]
-        // Do any additional setup after loading the view.
+        self.backgroundImage = UIImageView(image: UIImage(named: "foodbg2"))
+        self.backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(self.backgroundImage, at: 0)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.backgroundImage.frame = self.view.bounds
+    }
+    
+
 
     /*
     // MARK: - Navigation

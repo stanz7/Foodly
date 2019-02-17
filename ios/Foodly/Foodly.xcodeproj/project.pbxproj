@@ -37,6 +37,13 @@
 		3DCF7464221982D500DEA06D /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF7463221982D500DEA06D /* HomeView2.swift */; };
 		3DCF746622198BCA00DEA06D /* userAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746522198BCA00DEA06D /* userAvailable.swift */; };
 		3DCF746822198F6700DEA06D /* restDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746722198F6700DEA06D /* restDetails.swift */; };
+		3DCF746A2219957C00DEA06D /* navControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF74692219957C00DEA06D /* navControllerViewController.swift */; };
+		3DCF746C2219A5F400DEA06D /* userHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746B2219A5F400DEA06D /* userHistory.swift */; };
+		3DCF746E2219ADFE00DEA06D /* decisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746D2219ADFE00DEA06D /* decisionViewController.swift */; };
+		3DCF74702219B50500DEA06D /* userReg1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746F2219B50500DEA06D /* userReg1.swift */; };
+		3DCF74722219B64600DEA06D /* userReg2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF74712219B64600DEA06D /* userReg2.swift */; };
+		3DCF74742219BD2400DEA06D /* userSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF74732219BD2400DEA06D /* userSettings.swift */; };
+		3DCF74762219BE3800DEA06D /* redeemPrizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF74752219BE3800DEA06D /* redeemPrizes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +100,13 @@
 		3DCF7463221982D500DEA06D /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
 		3DCF746522198BCA00DEA06D /* userAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAvailable.swift; sourceTree = "<group>"; };
 		3DCF746722198F6700DEA06D /* restDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restDetails.swift; sourceTree = "<group>"; };
+		3DCF74692219957C00DEA06D /* navControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navControllerViewController.swift; sourceTree = "<group>"; };
+		3DCF746B2219A5F400DEA06D /* userHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userHistory.swift; sourceTree = "<group>"; };
+		3DCF746D2219ADFE00DEA06D /* decisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = decisionViewController.swift; sourceTree = "<group>"; };
+		3DCF746F2219B50500DEA06D /* userReg1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userReg1.swift; sourceTree = "<group>"; };
+		3DCF74712219B64600DEA06D /* userReg2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userReg2.swift; sourceTree = "<group>"; };
+		3DCF74732219BD2400DEA06D /* userSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSettings.swift; sourceTree = "<group>"; };
+		3DCF74752219BE3800DEA06D /* redeemPrizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = redeemPrizes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +186,13 @@
 				3DCF7463221982D500DEA06D /* HomeView2.swift */,
 				3DCF746522198BCA00DEA06D /* userAvailable.swift */,
 				3DCF746722198F6700DEA06D /* restDetails.swift */,
+				3DCF74692219957C00DEA06D /* navControllerViewController.swift */,
+				3DCF746B2219A5F400DEA06D /* userHistory.swift */,
+				3DCF746D2219ADFE00DEA06D /* decisionViewController.swift */,
+				3DCF746F2219B50500DEA06D /* userReg1.swift */,
+				3DCF74712219B64600DEA06D /* userReg2.swift */,
+				3DCF74732219BD2400DEA06D /* userSettings.swift */,
+				3DCF74752219BE3800DEA06D /* redeemPrizes.swift */,
 			);
 			path = Foodly;
 			sourceTree = "<group>";
@@ -337,12 +358,18 @@
 				3DCF746822198F6700DEA06D /* restDetails.swift in Sources */,
 				3D0F9B402218F277007063CA /* RestaurantDonate.swift in Sources */,
 				3D0F9B422218FACC007063CA /* RestaurantPending.swift in Sources */,
+				3DCF746E2219ADFE00DEA06D /* decisionViewController.swift in Sources */,
 				3D0F9B2C2218C12C007063CA /* OBView2.swift in Sources */,
+				3DCF74742219BD2400DEA06D /* userSettings.swift in Sources */,
+				3DCF746A2219957C00DEA06D /* navControllerViewController.swift in Sources */,
+				3DCF74762219BE3800DEA06D /* redeemPrizes.swift in Sources */,
 				3D0F9B3C2218ED1B007063CA /* Tab2.swift in Sources */,
 				3D0F9B342218E163007063CA /* Available.swift in Sources */,
 				3D0F9B3A2218EB93007063CA /* Tab.swift in Sources */,
 				3DCF746622198BCA00DEA06D /* userAvailable.swift in Sources */,
 				3D0F9B3E2218F1F8007063CA /* RestaurantLanding.swift in Sources */,
+				3DCF74722219B64600DEA06D /* userReg2.swift in Sources */,
+				3DCF74702219B50500DEA06D /* userReg1.swift in Sources */,
 				3D0F9B4622197077007063CA /* DetailsViewController.swift in Sources */,
 				3D0F9B382218E604007063CA /* StationCell.swift in Sources */,
 				3D0F9B322218E0E0007063CA /* userBookingsController.swift in Sources */,
@@ -350,6 +377,7 @@
 				3D0F9B302218CCEE007063CA /* locationSearchTable.swift in Sources */,
 				3D0F9B1D2217B96B007063CA /* pSignIn1.swift in Sources */,
 				3D0F9B172217AF34007063CA /* OBView1.swift in Sources */,
+				3DCF746C2219A5F400DEA06D /* userHistory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

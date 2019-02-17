@@ -1,5 +1,5 @@
 //
-//  restaurantSignUp.swift
+//  decisionViewController.swift
 //  Foodly
 //
 //  Created by Stanley Zeng on 2/17/19.
@@ -8,22 +8,14 @@
 
 import UIKit
 
-var restaurantNames = [String]()
-var restaurantAddresses = [String]()
-var restaurantPhoneNumbers = [String]()
-
-class restaurantSignUp: UIViewController {
-
-    @IBOutlet weak var rNameField: UITextField!
-    @IBOutlet weak var rAddressField: UITextField!
-    @IBOutlet weak var rPhoneField: UITextField!
+class decisionViewController: UIViewController {
     
     var backgroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.backgroundImage = UIImageView(image: UIImage(named: "foodbg"))
+        self.backgroundImage = UIImageView(image: UIImage(named: "foodbg2"))
         self.backgroundImage.contentMode = .scaleAspectFill
         self.view.insertSubview(self.backgroundImage, at: 0)
     }
@@ -34,15 +26,7 @@ class restaurantSignUp: UIViewController {
         self.backgroundImage.frame = self.view.bounds
     }
 
-    
-    
-    @IBAction func nextPressed(_ sender: Any) {
-        restaurantNames.append(self.rNameField.text!)
-        restaurantAddresses.append(self.rAddressField.text!)
-        
-        restaurantPhoneNumbers.append(self.rPhoneField.text!)
-    }
-    
+
     /*
     // MARK: - Navigation
 

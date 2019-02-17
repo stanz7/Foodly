@@ -8,23 +8,53 @@
 
 import UIKit
 
-class userHistory: UIViewController {
+class userHistory: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
+        tableView.dataSource = self
+        tableView.delegate = self
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pastRestNames.count
     }
-    */
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCell", for: indexPath)
+        cell.textLabel?.text = pastRestNames[0]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toDetailsFromHistory", sender: self)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let good = UITableViewRowAction(style: .normal, title: "Works", handler: {action, indexPath in
+            pastRestNames = restaurantNames
+            restaurantNames.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+            
+            
+        })
+        good.backgroundColor = UIColor.green
+        
+        
+        
+        return[good]
+    }
+    
 
 }

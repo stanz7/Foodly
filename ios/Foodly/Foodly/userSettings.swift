@@ -1,5 +1,5 @@
 //
-//  rSettingsViewController.swift
+//  userSettings.swift
 //  Foodly
 //
 //  Created by Stanley Zeng on 2/17/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class rSettingsViewController: UIViewController {
+class userSettings: UIViewController {
 
     var backgroundImage: UIImageView!
     
@@ -25,23 +25,15 @@ class rSettingsViewController: UIViewController {
         
         self.backgroundImage.frame = self.view.bounds
     }
-
-    @IBAction func logOut(_ sender: Any) {
+    
+    @IBAction func logOutClicked(_ sender: Any) {
         let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "navControllerViewController") as! navControllerViewController
         
         let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDel.window?.rootViewController = loginVC
-
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
+    
 
 }

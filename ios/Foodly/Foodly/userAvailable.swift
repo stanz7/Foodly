@@ -8,6 +8,8 @@
 
 import UIKit
 
+var pastRestNames = [String]()
+
 class userAvailable: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
@@ -17,7 +19,6 @@ class userAvailable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantNames.count
@@ -29,9 +30,6 @@ class userAvailable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "availableRestaurantCell", for: indexPath)
         cell.textLabel?.text = restaurantNames[0]
-        //cell.tableCellLabel.text = dates[indexPath.row]
-        //cell.tableCellLabel2.text = pounds[indexPath.row]
-        
         return cell
     }
     
@@ -40,25 +38,24 @@ class userAvailable: UIViewController, UITableViewDelegate, UITableViewDataSourc
         performSegue(withIdentifier: "toRestDetails", sender: self)
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .insert{
+
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let good = UITableViewRowAction(style: .normal, title: "Works", handler: {action, indexPath in
+            pastRestNames = restaurantNames
             restaurantNames.remove(at: indexPath.row)
-            
             tableView.deleteRows(at: [indexPath], with: .bottom)
-        }
+            
+            
+        })
+        good.backgroundColor = UIColor.green
+        
+       
+        
+        return[good]
     }
     
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
