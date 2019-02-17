@@ -10,6 +10,7 @@ import UIKit
 
 class OBView1: UIViewController {
     
+    
     @IBOutlet weak var img: UIImageView!
     
     var imagePicker = UIImagePickerController()
@@ -26,6 +27,7 @@ class OBView1: UIViewController {
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true, completion: nil)
+        //self.textLabel.text = "Got it!"
         
         
     }

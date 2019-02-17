@@ -32,11 +32,13 @@ class pSignIn2: UIViewController {
         }
     }
     
+    /*
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "checkResultSegue",
             let dest = segue.destination as? OBView1 {
             //dest.message = resultMessage
         }
     }
+ */
 
 }
