@@ -12,7 +12,8 @@ class RestaurantDonate: UIViewController {
 
     @IBOutlet weak var poundsField: UITextField!
     
-
+    @IBOutlet weak var descriptionField: UITextField!
+    
     @IBOutlet weak var dateTextField: UITextField!
     
     private var datePicker: UIDatePicker?
@@ -55,8 +56,8 @@ class RestaurantDonate: UIViewController {
     @IBAction func donePressed(_ sender: Any) {
         
         let tabbar = tabBarController as! Tab2
-        tabbar.add(date: self.dateTextField.text!, pound: self.poundsField.text!)
-        print(tabbar.dates[0])
+        tabbar.add(date: self.dateTextField.text!, pound: self.poundsField.text!, description: self.descriptionField.text!)
+        //print(tabbar.dates[0])
         let alertController = UIAlertController(title: "Thanks!", message: "Points will be added once picked up.", preferredStyle: .alert)
         
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in

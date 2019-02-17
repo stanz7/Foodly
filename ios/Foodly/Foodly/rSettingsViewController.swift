@@ -1,37 +1,30 @@
 //
-//  Tab2.swift
+//  rSettingsViewController.swift
 //  Foodly
 //
-//  Created by Stanley Zeng on 2/16/19.
+//  Created by Stanley Zeng on 2/17/19.
 //  Copyright © 2019 Stanley Zeng. All rights reserved.
 //
 
 import UIKit
 
-var dates = [String]()
-var pounds = [String]()
-var globalDescription = [String]()
+class rSettingsViewController: UIViewController {
 
-class Tab2: UITabBarController {
-    
-    /*
-    var dates = [String]()
-    var pounds = [String]()
- */
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
+
         // Do any additional setup after loading the view.
     }
     
-    func add(date: String, pound: String, description: String) {
-        dates.append(date)
-        pounds.append(pound)
-        globalDescription.append(description)
+
+    @IBAction func logOut(_ sender: Any) {
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        
+        let appDel:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDel.window?.rootViewController = loginVC
+
     }
-    
     /*
     // MARK: - Navigation
 

@@ -10,9 +10,11 @@ import UIKit
 
 class RestaurantLanding: UIViewController {
 
+    @IBOutlet weak var restName: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        restName.text = restaurantNames[0]
         // Do any additional setup after loading the view.
     }
     

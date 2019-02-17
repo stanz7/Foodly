@@ -1,37 +1,22 @@
 //
-//  Tab2.swift
+//  HomeView2.swift
 //  Foodly
 //
-//  Created by Stanley Zeng on 2/16/19.
+//  Created by Stanley Zeng on 2/17/19.
 //  Copyright © 2019 Stanley Zeng. All rights reserved.
 //
 
 import UIKit
 
-var dates = [String]()
-var pounds = [String]()
-var globalDescription = [String]()
+class HomeView2: UIViewController {
 
-class Tab2: UITabBarController {
-    
-    /*
-    var dates = [String]()
-    var pounds = [String]()
- */
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.hidesBackButton = true
         // Do any additional setup after loading the view.
     }
     
-    func add(date: String, pound: String, description: String) {
-        dates.append(date)
-        pounds.append(pound)
-        globalDescription.append(description)
-    }
-    
+
     /*
     // MARK: - Navigation
 

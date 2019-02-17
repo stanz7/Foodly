@@ -28,21 +28,18 @@ class MainView1: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        self.navigationItem.hidesBackButton = true
-        
         let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "locationSearchTable") as! locationSearchTable
         resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable as! UISearchResultsUpdating
-        
+        resultSearchController?.searchResultsUpdater = locationSearchTable as UISearchResultsUpdating
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.placeholder = "Search for places"
         navigationItem.titleView = resultSearchController?.searchBar
-        
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true

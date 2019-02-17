@@ -9,29 +9,37 @@
 import UIKit
 
 
+
 class RestaurantPending: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var dates = [String]()
-    var pounds = [String]()
+    
 
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         //self.navigationItem.rightBarButtonItem = UIBarButtonItem.plain(barButtonSystemItem: UIBarButtonItem.SystemItem, target: self, action: nil)
-        super.viewDidLoad()
-        //self.tableView.rowHeight = 100.0
-        let tabbar = tabBarController as! Tab2
-        dates = tabbar.dates
-        pounds = tabbar.pounds
         tableView.dataSource = self
         tableView.delegate = self
+        super.viewDidLoad()
+        //self.tableView.rowHeight = 100.0
+        
+        let tabbar = tabBarController as! Tab2
+        /*
+        dates = tabbar.dates
+        pounds = tabbar.pounds
+ */
+        
         let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(self.refresh(_:)))
         self.navigationItem.rightBarButtonItem = refreshBtn
         //self.navigationItem.rightBarButtonItem = UIBarButtonItem.Style
         // Do any additional setup after loading the view.
         
+        
     }
     
+    @IBAction func refresheroo(_ sender: Any) {
+        self.tableView.reloadData()
+    }
     @IBAction func refresh(_ sender: Any) {
         self.tableView.reloadData()
     }
@@ -63,7 +71,31 @@ class RestaurantPending: UIViewController, UITableViewDelegate, UITableViewDataS
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "toDetails", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            dates.remove(at: indexPath.row)
+            pounds.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: .bottom)
+        }
+    }
+    /*
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let good = UITableViewRowAction(style: .normal, title: "Complete", handler: {action, indexPath in })
+        
+        let report = UITableViewRowAction(style: .destructive, title: "Cancel", handler: {action, indexPath in })
+        
+        
+        return[good, report]
+    }
+    */
+    
     /*
     // MARK: - Navigation
 

@@ -1,37 +1,32 @@
 //
-//  Tab2.swift
+//  restDetails.swift
 //  Foodly
 //
-//  Created by Stanley Zeng on 2/16/19.
+//  Created by Stanley Zeng on 2/17/19.
 //  Copyright © 2019 Stanley Zeng. All rights reserved.
 //
 
 import UIKit
 
-var dates = [String]()
-var pounds = [String]()
-var globalDescription = [String]()
+class restDetails: UIViewController {
 
-class Tab2: UITabBarController {
-    
-    /*
-    var dates = [String]()
-    var pounds = [String]()
- */
+    @IBOutlet weak var restAddy: UILabel!
+    @IBOutlet weak var restPhone: UILabel!
+    @IBOutlet weak var restPickUpDate: UILabel!
+    @IBOutlet weak var pickUpDescription: UILabel!
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationItem.hidesBackButton = true
+        restAddy.text = restaurantAddresses[0]
+        restPhone.text = restaurantPhoneNumbers[0]
+        restPickUpDate.text = dates[0]
+        pickUpDescription.text = globalDescription[0]
+        
+
         // Do any additional setup after loading the view.
     }
     
-    func add(date: String, pound: String, description: String) {
-        dates.append(date)
-        pounds.append(pound)
-        globalDescription.append(description)
-    }
-    
+
     /*
     // MARK: - Navigation
 

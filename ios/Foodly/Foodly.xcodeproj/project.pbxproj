@@ -31,6 +31,12 @@
 		3D0F9B402218F277007063CA /* RestaurantDonate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F9B3F2218F277007063CA /* RestaurantDonate.swift */; };
 		3D0F9B422218FACC007063CA /* RestaurantPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F9B412218FACC007063CA /* RestaurantPending.swift */; };
 		3D0F9B442219048A007063CA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F9B432219048A007063CA /* TableViewCell.swift */; };
+		3D0F9B4622197077007063CA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0F9B4522197077007063CA /* DetailsViewController.swift */; };
+		3DCF746022197D7B00DEA06D /* restaurantSignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF745F22197D7B00DEA06D /* restaurantSignUp.swift */; };
+		3DCF74622219802600DEA06D /* rSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF74612219802600DEA06D /* rSettingsViewController.swift */; };
+		3DCF7464221982D500DEA06D /* HomeView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF7463221982D500DEA06D /* HomeView2.swift */; };
+		3DCF746622198BCA00DEA06D /* userAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746522198BCA00DEA06D /* userAvailable.swift */; };
+		3DCF746822198F6700DEA06D /* restDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DCF746722198F6700DEA06D /* restDetails.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +87,12 @@
 		3D0F9B3F2218F277007063CA /* RestaurantDonate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDonate.swift; sourceTree = "<group>"; };
 		3D0F9B412218FACC007063CA /* RestaurantPending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPending.swift; sourceTree = "<group>"; };
 		3D0F9B432219048A007063CA /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3D0F9B4522197077007063CA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		3DCF745F22197D7B00DEA06D /* restaurantSignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restaurantSignUp.swift; sourceTree = "<group>"; };
+		3DCF74612219802600DEA06D /* rSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rSettingsViewController.swift; sourceTree = "<group>"; };
+		3DCF7463221982D500DEA06D /* HomeView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView2.swift; sourceTree = "<group>"; };
+		3DCF746522198BCA00DEA06D /* userAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userAvailable.swift; sourceTree = "<group>"; };
+		3DCF746722198F6700DEA06D /* restDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = restDetails.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +166,12 @@
 				3D0F9B3F2218F277007063CA /* RestaurantDonate.swift */,
 				3D0F9B412218FACC007063CA /* RestaurantPending.swift */,
 				3D0F9B432219048A007063CA /* TableViewCell.swift */,
+				3D0F9B4522197077007063CA /* DetailsViewController.swift */,
+				3DCF745F22197D7B00DEA06D /* restaurantSignUp.swift */,
+				3DCF74612219802600DEA06D /* rSettingsViewController.swift */,
+				3DCF7463221982D500DEA06D /* HomeView2.swift */,
+				3DCF746522198BCA00DEA06D /* userAvailable.swift */,
+				3DCF746722198F6700DEA06D /* restDetails.swift */,
 			);
 			path = Foodly;
 			sourceTree = "<group>";
@@ -308,21 +326,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DCF746022197D7B00DEA06D /* restaurantSignUp.swift in Sources */,
 				3D0F9AEB2217A3A3007063CA /* ViewController.swift in Sources */,
 				3D0F9B192217B7D4007063CA /* VerifyAPI.swift in Sources */,
 				3D0F9AE92217A3A3007063CA /* AppDelegate.swift in Sources */,
 				3D0F9B442219048A007063CA /* TableViewCell.swift in Sources */,
 				3D0F9B2E2218C9DA007063CA /* MainView1.swift in Sources */,
+				3DCF7464221982D500DEA06D /* HomeView2.swift in Sources */,
 				3D0F9B1F2217BA66007063CA /* pSignIn2.swift in Sources */,
+				3DCF746822198F6700DEA06D /* restDetails.swift in Sources */,
 				3D0F9B402218F277007063CA /* RestaurantDonate.swift in Sources */,
 				3D0F9B422218FACC007063CA /* RestaurantPending.swift in Sources */,
 				3D0F9B2C2218C12C007063CA /* OBView2.swift in Sources */,
 				3D0F9B3C2218ED1B007063CA /* Tab2.swift in Sources */,
 				3D0F9B342218E163007063CA /* Available.swift in Sources */,
 				3D0F9B3A2218EB93007063CA /* Tab.swift in Sources */,
+				3DCF746622198BCA00DEA06D /* userAvailable.swift in Sources */,
 				3D0F9B3E2218F1F8007063CA /* RestaurantLanding.swift in Sources */,
+				3D0F9B4622197077007063CA /* DetailsViewController.swift in Sources */,
 				3D0F9B382218E604007063CA /* StationCell.swift in Sources */,
 				3D0F9B322218E0E0007063CA /* userBookingsController.swift in Sources */,
+				3DCF74622219802600DEA06D /* rSettingsViewController.swift in Sources */,
 				3D0F9B302218CCEE007063CA /* locationSearchTable.swift in Sources */,
 				3D0F9B1D2217B96B007063CA /* pSignIn1.swift in Sources */,
 				3D0F9B172217AF34007063CA /* OBView1.swift in Sources */,
