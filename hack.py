@@ -6,8 +6,12 @@ import hashlib
 from flask import Flask, render_template, request, session, url_for, redirect
 import pymysql.cursors
 
+#file path for images
+imgFold = os.path.join('static', 'img')
+
 #Initialize the app from Flask
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = imgFold
 APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 #Configure MySQL
 conn = pymysql.connect(host='localhost',
@@ -149,6 +153,7 @@ def restaurantRegisterAuth():
     city = request.form['city']
     state = request.form['state']
     zipcode = request.form['zipcode']
+    cuisine = request.form['cuisine']
 
     #cursor used to send queries
     cursor = conn.cursor()
@@ -164,8 +169,8 @@ def restaurantRegisterAuth():
         error = "This user already exists"
         return render_template('restaurantRegister.html', error = error)
     else:
-        ins = 'INSERT INTO restaurants VALUES(%s, %s, %s, %s, %s, %s, %s)'
-        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(),restaurantName, address, city, state, zipcode))
+        ins = 'INSERT INTO restaurants VALUES(%s, %s, %s, %s, %s, %s, %s, %s)'
+        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(),restaurantName, address, city, state, zipcode, cuisine))
         conn.commit()
         cursor.close()
         return redirect(url_for('verify'))
@@ -185,11 +190,20 @@ def home():
     cursor.execute(query2,(zipcode))
     row = cursor.fetchall()
     cursor.close()
+    firstName = data.get('fname')
     restaurantList = []
     for i in range(0,len(row)):
-        restaurantList.append(((row[i].get("restaurantName")),(row[i].get("address"))))
+        if ((row[i].get('cuisine')) == 'french'):
+            fileName = os.path.join(app.config['UPLOAD_FOLDER'], 'french.jpg')
+        if ((row[i].get('cuisine')) == 'chinese'):
+            fileName = os.path.join(app.config['UPLOAD_FOLDER'], 'chinese.jpg')
+        if ((row[i].get('cuisine')) == 'american'):
+            fileName = os.path.join(app.config['UPLOAD_FOLDER'], 'american.jpg')
+        if ((row[i].get('cuisine')) == 'italian'):
+            fileName = os.path.join(app.config['UPLOAD_FOLDER'], 'italian.jpg')
+        restaurantList.append((row[i].get("restaurantName"),row[i].get("address"), fileName, row[i].get('cuisine')))
     size = len(restaurantList)
-    return render_template('home.html', email = email, zipcode = zipcode, restaurantList = restaurantList, size = size)
+    return render_template('home.html', firstName = firstName, zipcode = zipcode, restaurantList = restaurantList, size = size)
 
 #displays the home page for restaurants
 @app.route('/restaurantHome')
@@ -200,11 +214,12 @@ def restaurantHome():
     cursor.execute(query, (email))
     data = cursor.fetchone()
     cursor.close()
+    restName = data.get('restaurantName') + ' family'
     if (data):
         points = data.get("pounds") * 100
-        return render_template('restaurantHome.html', email = email, points = points)
+        return render_template('restaurantHome.html', restName = restName, points = points)
     else:
-        return render_template('restaurantHome.html', email = email, points = 0)
+        return render_template('restaurantHome.html', restName = restName, points = 0)
 
 #Define route for restaurant donations 
 @app.route('/donate', methods=['GET', 'POST'])
