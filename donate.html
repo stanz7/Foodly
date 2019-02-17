@@ -1,0 +1,21 @@
+<!donate.html-->
+<html>
+<head>
+</head>
+<body>
+<form action="/donateAuth" method="POST">
+	<input type="text" name = "pounds" placeholder="pounds" required/> </br>
+	<input type="text" name = "restaurantName" placeholder="confirm restaurant name" required/></br>
+	<input type="text" name = "email" placeholder="confirm email" required/></br>
+	<input type="submit" value = Donate />
+	{% if error %}
+		<p class="error"><strong>Error:</strong> {{error}}</p>
+	{% endif %}
+</form>
+
+<a href="/">Go back</a>
+
+</body>
+
+
+</html>

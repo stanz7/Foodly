@@ -1,4 +1,4 @@
-<!––restaurantRegisterAuth.html-->
+<!––restaurantRegister.html-->
 <html>
 <head>
 </head>
@@ -7,9 +7,10 @@
 	<input type="text" name = "email" placeholder="email" required/> </br>
     <input type="password" name = "password" placeholder="password" required/></br>
     <input type="text" name = "restaurantName" placeholder="restaurant name" required/></br>
-    <input type="text" name = "address" placeholder="Street Address" required/></br>
+    <input type="text" name = "address" placeholder="address" required/> </br>
     <input type="text" name = "city" placeholder="city" required/></br>
     <input type="text" name = "state" placeholder="state" required/></br>
+    <input type="text" name = "zipcode" placeholder="zipcode" required/></br>
 	<input type="submit" value = Register />
 	{% if error %}
 		<p class="error"><strong>Error:</strong> {{error}}</p>
