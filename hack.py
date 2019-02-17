@@ -177,12 +177,19 @@ def restaurantRegisterAuth():
 def home():
     email = session['email']
     cursor = conn.cursor()
-    query = 'SELECT * FROM restaurants WHERE email = %s'
+    query = 'SELECT * FROM person WHERE email = %s'
     cursor.execute(query, (email))
     data = cursor.fetchone()
     zipcode = data.get("zipcode")
+    query2 = 'SELECT * FROM restaurants WHERE zipcode = %s'
+    cursor.execute(query2,(zipcode))
+    row = cursor.fetchall()
     cursor.close()
-    return render_template('home.html', email = email, zipcode = zipcode)
+    restaurantList = []
+    for i in range(0,len(row)):
+        restaurantList.append(((row[i].get("restaurantName")),(row[i].get("address"))))
+    size = len(restaurantList)
+    return render_template('home.html', email = email, zipcode = zipcode, restaurantList = restaurantList, size = size)
 
 #displays the home page for restaurants
 @app.route('/restaurantHome')
@@ -222,12 +229,14 @@ def donateAuth():
     cursor.execute(query, (email))
     #stores the results in a variable
     data = cursor.fetchone()
+
     #use fetchall() if you are expecting more than 1 data row
     error = None
     if(data):
         query2= 'UPDATE donations set pounds =  (pounds + %s) where email = %s'
         cursor.execute(query2, (pounds, email))
         conn.commit()
+        
         return redirect(url_for('donateVerified'))
     
     else:

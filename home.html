@@ -6,6 +6,16 @@
 <form action="/post" method="POST">
 	<h1>Home Page</h1> 
 	<h1>Welcome {{email}}</h1> 
+
+	<h2> Here are the available restaurants to pick up from available near {{zipcode}} </h2>
+	<h3> 
+		{%for i in range(0, size)%} 
+  
+    		<li>{{restaurantList[i][0]}}</li>
+    		address: {{restaurantList[i][1]}}</br> 
+
+		{%endfor%} 
+	</h3>
 </form>
 
 <br>
