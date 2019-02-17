@@ -117,18 +117,6 @@ def registerAuth():
     city = request.form['city']
     state = request.form['state']
     zipcode = request.form['zipcode']
-    stateID = request.files['stateID']
-    paystubs = request.files['paystubs']
-
-    destination = "/".join([target, email])
-    stateID.save(destination)
-    paystubs.save(destination)
-
-
-    target = os.path.join(APP_ROOT, 'images/')
-    if not os.path.isdir(target):
-        os.mkdir(target)
-
 
     #cursor used to send queries
     cursor = conn.cursor()
@@ -144,8 +132,8 @@ def registerAuth():
         error = "This user already exists"
         return render_template('register.html', error = error)
     else:
-        ins = 'INSERT INTO person VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)'
-        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(), fname, lname, address, city, state, zipcode, destination))
+        ins = 'INSERT INTO person VALUES(%s, %s, %s, %s, %s, %s, %s, %s)'
+        cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(),fname, lname, address, city, state, zipcode))
         conn.commit()
         cursor.close()
         return redirect(url_for('verify'))
@@ -174,7 +162,7 @@ def restaurantRegisterAuth():
     if(data):
         #If the previous query returns data, then user exists
         error = "This user already exists"
-        return render_template('register.html', error = error)
+        return render_template('restaurantRegister.html', error = error)
     else:
         ins = 'INSERT INTO restaurants VALUES(%s, %s, %s, %s, %s, %s, %s)'
         cursor.execute(ins, (email, hashlib.sha256(password.encode('utf-8')).hexdigest(),restaurantName, address, city, state, zipcode))
@@ -189,16 +177,27 @@ def restaurantRegisterAuth():
 def home():
     email = session['email']
     cursor = conn.cursor()
-    query = 'SELECT zipcode FROM restaurants WHERE email = %s'
+    query = 'SELECT * FROM restaurants WHERE email = %s'
     cursor.execute(query, (email))
-    zipcode = cursor.fetchone()
-    return render_template('home.html', email = email)
+    data = cursor.fetchone()
+    zipcode = data.get("zipcode")
+    cursor.close()
+    return render_template('home.html', email = email, zipcode = zipcode)
 
 #displays the home page for restaurants
 @app.route('/restaurantHome')
 def restaurantHome():
     email = session['email']
-    return render_template('restaurantHome.html', email = email)
+    cursor = conn.cursor()
+    query = 'SELECT * FROM donations WHERE email = %s'
+    cursor.execute(query, (email))
+    data = cursor.fetchone()
+    cursor.close()
+    if (data):
+        points = data.get("pounds") * 100
+        return render_template('restaurantHome.html', email = email, points = points)
+    else:
+        return render_template('restaurantHome.html', email = email, points = 0)
 
 #Define route for restaurant donations 
 @app.route('/donate', methods=['GET', 'POST'])
