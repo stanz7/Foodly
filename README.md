@@ -1,1 +1,1 @@
-# Foodly
+# Munchly
